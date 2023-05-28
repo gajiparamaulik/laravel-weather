@@ -64,3 +64,15 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## Description
+
+1. Composer install.
+2. npm install.
+3. create database :- laravel_weather
+4. run : php artisan migrate
+5. Find the attachment on Email : set .env file on your project.
+6. run : php artisan serve
+7. run : npm run dev
+8. run : php artisan schedule:work (For cron get weather report and send mail.)
