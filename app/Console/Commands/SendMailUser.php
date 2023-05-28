@@ -44,11 +44,12 @@ class SendMailUser extends Command
             ->where('user_cities.temp_limit','<=',$weather->temp)
             ->whereNotNull('user_cities.temp_limit')
             ->get();
+            
             $userEmails = $getUser->pluck('email');
-            // dd($userEmails);
+
             $mailData = [
-                'title' => $weather->name." city  temprature is more than " .$weather->temp."c",
-                'body' => 'current Weather is '
+                'title' => $weather->name." city  temprature is more than " .$weather->temp."Celsius.",
+                'body' => ''
             ];
              
             Mail::to($userEmails)->send(new SendMail($mailData));

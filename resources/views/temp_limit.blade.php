@@ -1,9 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+<a href="/home"><button class="btn btn-dark float-end back-home">Back to Home</button></a>
+    @if(!$selectedCity)
+        <div class="container text-center">
+            <h2 class="text-dark">No Data, Please Select the city and get the details.</h2>
+        </div>
+    @else
     <div class="container">
         @if (\Session::has('success'))
-            <div class="alert alert-success p-0 w-45">
+            <div class="alert alert-success p-0 w-45" id="successMsg">
                 <ul class="mt-2 mb-2">
                     <li>{!! \Session::get('success') !!}</li>
                 </ul>
@@ -24,7 +30,7 @@
                         <div class="d-flex flex-wrap bd-highlight mb-3">
                             <div class="p-2 bd-highlight">Temp. :- {{ $city['response']['main']['temp'] - 273.15 }} <span>&#8451;</span></div>
                             <div class="p-2 bd-highlight">Humidity :- {{ $city['response']['main']['humidity'] }}%</div>
-                            <div class="p-2 bd-highlight">Wind :- {{ $city['response']['wind']['speed'] }}</div>
+                            <div class="p-2 bd-highlight">Wind :- {{ $city['response']['wind']['speed'] }}mph</div>
                         </div>
                     @endif
                 </div>
@@ -32,6 +38,15 @@
             <button type="submit" class="btn btn-warning mt-3">Submit</button>
         </form>
     </div>
+    @endif
+
+<script>
+    $("document").ready(function(){
+        setTimeout(function(){
+            $("#successMsg").fadeOut();
+        }, 3000 ); 
+    });
+</script>
 
 <style>
     .w-45 {

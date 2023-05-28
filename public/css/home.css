@@ -124,3 +124,11 @@ h5 {
 	bottom: 0;
 	border-bottom-right-radius: 10px;
 }
+
+.temp-font {
+	font-size: 25px !important;
+}
+
+.back-home {
+	margin-right: 30px !important;
+}

@@ -8,9 +8,9 @@
     <article class="widget">
         <div class="weatherIcon"></div>
         <div class="weatherData">
-            <h1 class="temperature">28&deg;</h1>
-            {{-- <h2 class="description">{{ $location->regionCode }}</h2> --}}
-            <h3 class="city">Bangalore, Karnataka.</h3>
+            <h1 class="temperature temp-font">{{ $location['main']['temp'] - 273.15 }} <span>&#8451;</span></h1>
+            <h2 class="description">{{ $location['weather'][0]['description'] }}</h2>
+            <h3 class="city">{{ $location['name']}} , {{ $location['sys']['country'] }}.</h3>
         </div>
         
         <div class="date">
@@ -18,13 +18,4 @@
             <h5 class="day" id="day"></h5>
         </div>
     </article>
-	{{-- <h3>IP: {{ $curLocation->ip }}</h3>
-	<h3>Country Name: {{ $curLocation->countryName }}</h3>
-	<h3>Country Code: {{ $curLocation->countryCode }}</h3>
-	<h3>Region Code: {{ $curLocation->regionCode }}</h3>
-	<h3>Region Name: {{ $curLocation->regionName }}</h3>
-	<h3>City Name: {{ $curLocation->cityName }}</h3>
-	<h3>Zipcode: {{ $curLocation->zipCode }}</h3>
-	<h3>Latitude: {{ $curLocation->latitude }}</h3>
-	<h3>Longitude: {{ $curLocation->longitude }}</h3> --}}
 @endsection

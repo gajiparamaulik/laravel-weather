@@ -29,8 +29,7 @@ class UserCityController extends Controller
         if($check > 0){
             UserCity::where("user_id", $authId)->delete();
         }
-        
-            UserCity::insert($recArr);
+        UserCity::insert($recArr);
         
         return redirect()->back()->with('success', 'City Add Successfully.!!');
     }
@@ -41,9 +40,6 @@ class UserCityController extends Controller
             'title' => 'Mail from Weather App.',
             'body' => 'Weather App Details.'
         ];
-         
         Mail::to('maulikaarrsol@gmail.com')->send(new SendMail($mailData));
-           
-        dd("Weather App Email is sent successfully.");
     }
 }

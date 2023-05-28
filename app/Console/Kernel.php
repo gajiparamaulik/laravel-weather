@@ -18,8 +18,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command(GetWeatherReport::class)->everyMinute();
-        // $schedule->command(SendMailUser::class)->everyMinute();
-        // $schedule->command('inspire')->hourly();
+        $schedule->command(SendMailUser::class)->everyMinute();
     }
 
     /**

@@ -33,16 +33,16 @@ class GetWeatherReport extends Command
         $getCityRecord = UserCity::leftJoin('cities', 'cities.id', '=', 'user_cities.city_id')
         ->select("cities.id", "cities.name")->distinct()->get();
 
-        $collectData = $getCityRecord->pluck('name')->toArray();
-
         $storeData =[];
-        $weatherApi = "a98ec63f8e1c7a4f6ff2b6089294bc77";
+        $weatherApi = config('define.weather_api_key');
+
         foreach($getCityRecord as $city){
             $response = Http::get('https://api.openweathermap.org/data/2.5/weather?q='. $city->name .'&appid=' . $weatherApi);
             $temperature = $response->json();
             $tempCity = $getCityRecord->where('name', $city->name)->first();
             $tempCity->response = $temperature;
             $tempCity->temp = $temperature['main']['temp'] - 273.15;
+            
             array_push($storeData,array(
                 "city_id" => $city->id,
                 "response"  => json_encode($tempCity->response),

@@ -76,3 +76,4 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 6. run : php artisan serve
 7. run : npm run dev
 8. run : php artisan schedule:work (For cron get weather report and send mail.)
+9. Don't Forget to put you IP Address in Config/define.php File.
