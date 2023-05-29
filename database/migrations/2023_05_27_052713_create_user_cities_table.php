@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->mediumInteger('city_id')->unsigned();
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
-            $table->tinyInteger('temp_limit')->default(null);
+            $table->tinyInteger('temp_limit')->nullable();
             $table->timestamps();
         });
     }
