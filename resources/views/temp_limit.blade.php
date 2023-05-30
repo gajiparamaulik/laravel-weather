@@ -30,7 +30,7 @@
                         <div class="d-flex flex-wrap bd-highlight mb-3">
                             <div class="p-2 bd-highlight">Temp. :- {{ $city['response']['main']['temp'] - 273.15 }} <span>&#8451;</span></div>
                             <div class="p-2 bd-highlight">Humidity :- {{ $city['response']['main']['humidity'] }}%</div>
-                            <div class="p-2 bd-highlight">Wind :- {{ $city['response']['wind']['speed'] }}mph</div>
+                            <div class="p-2 bd-highlight">Wind :- {{ $city['response']['wind']['speed'] * 1.6 }}km/h</div>
                         </div>
                     @endif
                 </div>
