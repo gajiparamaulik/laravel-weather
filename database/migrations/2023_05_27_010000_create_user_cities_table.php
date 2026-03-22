@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('user_cities', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->mediumInteger('city_id')->unsigned();
-            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
+
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('city_id')->constrained()->cascadeOnDelete();
+
             $table->tinyInteger('temp_limit')->nullable();
             $table->timestamps();
         });

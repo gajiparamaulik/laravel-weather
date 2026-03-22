@@ -20,6 +20,7 @@ class WeatherCheckController extends Controller
           
             return view('temp_limit', compact('selectedCity'));
         } catch (\Exception $e) {
+            dd($e);
             throw new HttpException($e->getMessage());
         }
     }

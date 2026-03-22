@@ -44,7 +44,7 @@ class HomeController extends Controller
             
             return view('home', compact('country', 'selectedCity', 'indiaCity', 'curLocation'));
         } catch (\Exception $e) {
-            throw new HttpException($e->getMessage());
+            throw new HttpException(404, 'Not Found');
         }
     }
 }

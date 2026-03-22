@@ -10,8 +10,8 @@
             <div class="weatherIcon"></div>
             <div class="weatherData">
                 <h1 class="temperature temp-font">{{ $location['main']['temp'] - 273.15 }} <span>&#8451;</span></h1>
-                <h2 class="description">{{ $location['weather'][0]['description'] }}</h2>
-                <h3 class="city">{{ $location['name']}} , {{ $location['sys']['country'] }}.</h3>
+                <h2 class="description ps-3">{{ $location['weather'][0]['description'] }}</h2>
+                <h3 class="city ps-3">{{ $location['name']}} , {{ $location['sys']['country'] }}.</h3>
             </div>
             
             <div class="date">
